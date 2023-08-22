@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="../assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+
+    <!-- templates header, nav, help, legal-->
+    <link rel="stylesheet" href=".././templates/headerNav/headerNav.css">
+    <script src=".././templates/headerNav/headerNav.js"></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href=".././style/fonts/fonts.css">
+    <link rel="stylesheet" href=".././style/addtask.css">
+    <link rel="stylesheet" href=".././templates/addtask/addtaskTemplate.css">
+    <link rel="stylesheet" href=".././style/addtaskMediaQueries.css">
+    <link rel="stylesheet" href=".././style/style.css">
+    <link rel="stylesheet" href=".././style/bgColors.css">
+    <link rel="stylesheet" href=".././style/showAndHide.css">
+
+    <!-- javascript -->
+    <script src=".././js/backend.js"></script>
+    <script src=".././templates/headerNav/headerNav.js"></script>
+    <script src=".././js/guestUserData.js"></script>
+    <script src=".././js/userDataManager.js"></script>
+    <script src=".././js/script.js"></script>
+    <script src=".././js/overlayManager.js"></script>
+    <script src=".././js/addtask.js"></script>
+    <script src=".././templates/addtask/addtaskTemplate.js"></script>
+    <script src=".././js/addtaskCancel.js"></script>
+    <script src=".././js/addtaskCreate.js"></script>
+    <script src=".././js/login.js"></script>
+    <script src=".././js/contact.js"></script>
+    <script src=".././js/contactDetails.js"></script>
+    <script src=".././js/contactList.js"></script>
+</head>
+
+<body id="body" onload="initAddTask();"
+    onclick="closeMenu(); closeDropDown('addtask-assigned-dropdown'); closeDropDown('addtask-category-dropdown');">
+
+    <div w3-include-html=".././templates/headerNav/headerNav.html" style="height: 0;"></div>
+
+    <main class="addtask">
+        <div w3-include-html=".././templates/addtask/addtaskTemplateMobileCreateButton.html"></div>
+
+        <p class="subheadline cursor-d m-0 fs-16 fw-400 mb-20 mobile-only">Kanban Project Managment Tool</p>
+
+        <div class="addtask-template-container" w3-include-html=".././templates/addtask/addtaskTemplate.html"></div>
+    </main>
+
+    <div id="task-successfully-added" class="task-added fs-21 mobile-fs-16 fw-400">
+        Task added to board <img src="../assets/img/boardNav.png">
+    </div>
+
+</body>
+
+</html>

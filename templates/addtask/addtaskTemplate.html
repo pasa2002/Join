@@ -1,0 +1,158 @@
+<p class="header-headline cursor-d m-0 mb-30">Add Task</p>
+
+<form id="addtask-form" onsubmit="addTask(); return false;">
+
+    <section id="addtask-left-or-top">
+        <!-- Title -->
+        <div id="addtask-title" class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+            <span>Title</span>
+            <input id="addtask-title-input" class="fs-21 fw-400 mobile-fs-16" type="text" placeholder="Enter a title"
+                title="" required>
+        </div>
+
+        <!-- Description -->
+        <div id="addtask-description" class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+            <span>Description</span>
+            <textarea id="addtask-description-input" class="fs-21 fw-400 mobile-fs-16" placeholder="Enter a description"
+                title="" required></textarea>
+        </div>
+
+        <!-- Category -->
+        <div id="addtask-category" class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+            <span>Category</span>
+
+            <div id="addtask-category-dropdown" class="dropdown-menu fs-21 fw-400 mobile-fs-16"
+                onclick="doNotClose(event)">
+                <div id="select-task-category" onclick="toggleActiveForDropDown('addtask-category-dropdown');">
+                    Select task category
+                </div>
+                <div id="define-task-category" class="d-none">
+                    <input id="new-category-input" class="fs-21 fw-400 mobile-fs-16" type="name"
+                        placeholder="New category name">
+                    <label for="new-category-input" id="color-selected"
+                        class="color-cicle addtask-category-color img-20 hidden"></label>
+                    <div class="selection-img">
+                        <img onclick="closeNewCategoryInput()" class="img-24 px-5" src="../../assets/img/clear.svg">
+                        <img onclick="saveNewCategory()" class="border-left img-24 create-task px-5"
+                            src="../../assets/img/create.png">
+                    </div>
+                </div>
+
+                <div id="addtask-category-container">
+                    <div class="addtask-category addtask-category-new" onclick="openNewCategoryInput()">
+                        New category
+                    </div>
+
+                    <div id="addtask-category-list">
+                        <!-- rendered in renderCategoriesForAddTaskDropDown() -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="color-pick" class="color-pick d-none">
+                <div onclick="addColorCategory(0)" class="color-cicle bg-0 img-20"></div>
+                <div onclick="addColorCategory(2)" class="color-cicle bg-2 img-20"></div>
+                <div onclick="addColorCategory(4)" class="color-cicle bg-4 img-20"></div>
+                <div onclick="addColorCategory(5)" class="color-cicle bg-5 img-20"></div>
+                <div onclick="addColorCategory(9)" class="color-cicle bg-9 img-20"></div>
+            </div>
+        </div>
+
+        <!-- Contacts -->
+        <div id="addtask-assigned" class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+            <span>Assigned To</span>
+
+            <div id="addtask-assigned-dropdown" class="dropdown-menu fs-21 fw-400 mobile-fs-16"
+                onclick="doNotClose(event)">
+                <div class="select-task-contacts" onclick="toggleActiveForDropDown('addtask-assigned-dropdown');">
+                    Select contacts to assign
+                </div>
+                <div id="addtask-assigned-contacts-container">
+
+                    <div id="addtask-assigned-contact-list">
+                        <!-- rendered in renderContactsForAddTaskDropDown() -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="addtask-right-or-bottom">
+        <!-- Due date -->
+        <div id="addtask-dueDate" class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+            <span>Due Date</span>
+            <input id="addtask-dueDate-input" class="fs-21 fw-400 mobile-fs-16" type="date" min="" title="" required>
+        </div>
+
+        <!-- Prio -->
+        <div class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-30">
+            <span>Priority</span>
+            <div id="addtask-prio">
+                <button id="addtask-prio-btn-urgent"
+                    class="addtask-prio-btn addtask-prio-btn-urgent fs-21 fw-400 mobile-fs-16" type="button"
+                    onclick="activatePrioButton(2, 'addtask')">
+                    <span>Urgent</span>
+                    <img class="addtask-prio-image" src="../../assets/img/prio-2.svg">
+                    <img class="addtask-prio-image-active" src="../../assets/img/prio-2_white.svg">
+                </button>
+
+                <button id="addtask-prio-btn-medium"
+                    class="addtask-prio-btn addtask-prio-btn-medium fs-21 fw-400 mobile-fs-16" type="button"
+                    onclick="activatePrioButton(1, 'addtask')">
+                    <span>Medium</span>
+                    <img class="addtask-prio-image" src="../../assets/img/prio-1.svg">
+                    <img class="addtask-prio-image-active" src="../../assets/img/prio-1_white.svg">
+                </button>
+
+                <button id="addtask-prio-btn-low"
+                    class="addtask-prio-btn addtask-prio-btn-low fs-21 fw-400 mobile-fs-16" type="button"
+                    onclick="activatePrioButton(0, 'addtask')">
+                    <span>Low</span>
+                    <img class="addtask-prio-image" src="../../assets/img/prio-0.svg">
+                    <img class="addtask-prio-image-active" src="../../assets/img/prio-0_white.svg">
+                </button>
+            </div>
+        </div>
+
+        <!-- Subtasks -->
+        <div id="addtask-subtasks" class="addtask-input fs-21 fw-400 mobile-fs-16 m-0 mb-45">
+            <span>Subtasks</span>
+
+            <div id="define-subtask">
+                <input id="new-subtask-input" class="fs-21 fw-400 mobile-fs-16" type="name"
+                    placeholder="Add new subtask" onkeydown="activateSubtaskInput()">
+
+                <div id="subtask-img-add" class="selection-img">
+                    <img src="../../assets/img/plus.svg">
+                </div>
+
+                <div id="subtask-img-active" class="selection-img d-none">
+                    <img onclick="deactivateSubtaskInput()" class="img-24 px-5" src="../../assets/img/clear.svg">
+                    <img onclick="saveNewSubtask()" class="border-left img-24 px-5" src="../../assets/img/check-black.svg">
+                </div>
+            </div>
+
+            <div id="subtask-list"></div>
+        </div>
+
+        <!-- Buttons -->
+        <div id="addtask-buttons" class="desktop-only">
+            <button id="addtask-light-btn" type="button" class="light-btn fs-21 fw-400" onclick="closeOrResetAddTask()">
+                <span id="addtask-light-btn-text">
+                    Clear
+                    <!-- rendered by renderAddTaskLightButton() -->
+                </span>
+                <div id="addtask-light-btn-symbol" class="cancel-icon img-24"></div>
+            </button>
+            <button id="addtask-dark-btn" type="submit" class="dark-btn fs-21 fw-700"
+                onclick="putFrameAroundUnfilledInputFields()">
+                <span id="addtask-dark-btn-text">
+                    Create Task
+                    <!-- rendered by renderAddTaskLightButton() -->
+                </span>
+                <img id="addtask-dark-btn-symbol" src="../../assets/img/create.png">
+            </button>
+        </div>
+    </section>
+
+</form>

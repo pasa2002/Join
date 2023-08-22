@@ -1,0 +1,15 @@
+.d-none {
+    display: none !important;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+.show-overlay {
+    transform: translate(0) !important;
+}
+
+.no-scrolling {
+    overflow: hidden !important;
+}

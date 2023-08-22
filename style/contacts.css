@@ -1,0 +1,336 @@
+* {
+    font-family: 'Inter';
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+main p,
+.overlay-bg p {
+    margin: 0;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+main.contacts {
+    background-color: #F5F5F5;
+    height: calc(100vh - 89px);
+    margin: 89px 0 0 232px;
+    display: flex;
+}
+
+/*--------------------------------------------------
+Contact List
+---------------------------------------------------*/
+.contacts-list-container {
+    width: 40%;
+    max-width: 500px;
+    background-color: white;
+    box-shadow: 4px 0px 6px 0px #00000014;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px;
+}
+
+.contacts-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.letter-container {
+    width: 100%;
+    padding: 0px 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letter-header {
+    width: 100%;
+    height: 60px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.letter-header-bottom-border {
+    width: 100%;
+    margin: 14px 0;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.contact {
+    width: 100%;
+    min-width: min-content;
+    display: flex;
+    gap: 35px;
+    padding: 15px 8px;
+    border-radius: 10px;
+}
+
+.contact:not(.contact-active):hover {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.08));
+    cursor: pointer;
+}
+
+.contact:hover .contact-icon {
+    border: 1px solid white;
+}
+
+.contact-active {
+    color: white;
+    background-color: #2A3647;
+}
+
+.contact-active .contact-icon {
+    border: 1px solid white;
+}
+
+.contact-list-icon {
+    min-width: 42px;
+    height: 42px;
+}
+
+.contact-name-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-email {
+    color: #007CEE;
+    margin-top: 5px;
+}
+
+/*--------------------------------------------------
+Contact Details
+---------------------------------------------------*/
+.contacts-info-container {
+    flex-grow: 1;
+    padding: 80px 50px 70px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+}
+
+.contacts-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-headline {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.header-border-mid {
+    height: 59px;
+    border: 3px solid #29ABE2;
+    border-radius: 2px;
+}
+
+.header-border-bottom {
+    width: 90px;
+    border: 3px solid #29ABE2;
+    border-radius: 2px;
+}
+
+.contacts-header .header-border-bottom {
+    display: none;
+}
+
+.header-subheadline {
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.contacts-header .header-subheadline {
+    color: #2A3647;
+}
+
+.contact-details-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+}
+
+.contact-details-container::-webkit-scrollbar {
+    display: none;
+}
+
+.contact-details-overlay {
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transform: translateX(100vw);
+    transition: all 220ms ease-in-out;
+}
+
+.contact-icon-and-name {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-overlay-icon {
+    min-width: 120px;
+    height: 120px;
+    border: 2px solid white;
+}
+
+.contact-name-addTask {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-addTask {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #29ABE2;
+    margin-top: 12px;
+}
+
+.contact-addTask:hover {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.contact-addTask:hover svg path {
+    stroke-width: 3;
+}
+
+.contact-header-and-edit {
+    display: flex;
+    align-items: center;
+    gap: 59px;
+    height: 70px;
+}
+
+.contact-edit {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.contact-edit:hover {
+    cursor: pointer;
+    color: #29ABE2;
+    font-weight: 700;
+}
+
+.contact-edit:hover svg path {
+    fill: #29ABE2;
+}
+
+.contact-details-email,
+.contact-details-phone {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-details-email a,
+.contact-details-phone a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.contact-details-email a {
+    color: #007CEE;
+}
+
+.contact-created {
+    position: absolute;
+    bottom: 150px;
+    width: fit-content;
+    color: white;
+    background-color: #2A3647;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-shadow: 0px 0px 4px 0px #00000026;
+    transform: translateY(100vh);
+    transition: all 500ms ease-in-out;
+}
+
+.new-contact {
+    height: 53px;
+    align-self: flex-end;
+    gap: 10px;
+}
+
+.close-contact-info {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.edit-card-mobile {
+    position: absolute;
+    right: 30px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+#contact-details-edit-mobile {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: unset;
+    background-image: url(../assets/img/editBtn_mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#contact-details-edit-mobile:hover {
+    background-image: url(../assets/img/editBtn_mobile_hover.svg);
+}
+
+#contact-details-edit-mobile:active {
+    background-image: url(../assets/img/editBtn_mobile_active.svg);
+}
+
+#contact-delete-mobile {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: unset;
+    background-image: url(../assets/img/deleteBtn_mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+#contact-delete-mobile:hover {
+    background-image: url(../assets/img/deleteBtn_mobile_hover.svg);
+}
+
+#contact-delete-mobile:active {
+    background-image: url(../assets/img/deleteBtn_mobile_active.svg);
+}

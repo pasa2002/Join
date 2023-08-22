@@ -1,0 +1,279 @@
+.addtask-template-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-headline {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+#addtask-form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#addtask-form section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 1;
+    max-width: 800px;
+}
+
+#addtask-left-or-top {
+    padding-right: 50px;
+    border-right: 1px solid #D1D1D1;
+}
+
+#addtask-right-or-bottom {
+    padding-left: 50px;
+}
+
+.addtask-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.addtask-input input:not([type='checkbox']),
+.addtask-input textarea {
+    padding: 13px 21px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    outline: none;
+}
+
+.dropdown-menu {
+    overflow: hidden;
+    transition: all 100ms ease-in;
+    max-height: 51px;
+    transform-origin: top;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.dropdown-menu.collapsed {
+    max-height: 204px !important;
+}
+
+.select-task-contacts,
+#select-task-category,
+#select-task-category-board{
+    padding: 13px 21px;
+    cursor: pointer;
+    background-image: url(../../assets/img/dropdown.svg);
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+#select-task-category,#select-task-category-board {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#addtask-category-dropdown {
+    scroll-behavior: smooth;
+}
+
+#new-category-input,
+#new-subtask-input,
+#new-category-input-board {
+    border: none !important;
+    padding: 13px 8px 13px 21px;
+}
+
+.addtask-category:hover {
+    background-color: #d8d4d4;
+    cursor: pointer;
+}
+
+#define-task-category,#define-task-category-board {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addtask-category {
+    display: flex;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+}
+
+.selection-img {
+    display: flex;
+    padding: 13px 10px;
+}
+
+.selection-img img {
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+.color-cicle {
+    display: flex;
+    border-radius: 50%;
+}
+
+.color-cicle:not(.addtask-category-color):hover {
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+}
+
+.addtask-category-color {
+    min-width: 20px;
+    min-height: 20px;
+    border: 2px solid #FFFFFF;
+}
+
+.color-pick {
+    margin: 8px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.color-pick div {
+    cursor: pointer;
+}
+
+#addtask-assigned-contacts-container,
+#addtask-category-container,
+#addtask-category-container-edit-board {
+    max-height: 153px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+.addtask-assigned-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 21px;
+    cursor: pointer;
+}
+
+.addtask-assigned-contact:hover,
+.addtask-category:hover {
+    background-color: #d8d4d4;
+}
+
+.addtask-assigned-contact-new {
+    background-image: url(../../assets/img/contactsaddtask.svg);
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+#addtask-prio {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.addtask-prio-btn {
+    border-radius: 10px;
+    padding: 18px 10px;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #D1D1D1;
+    box-sizing: border-box;
+    background-color: white;
+    flex-grow: 1;
+}
+
+.addtask-prio-image {
+    display: flex;
+}
+
+.addtask-prio-image-active {
+    display: none;
+}
+
+.addtask-prio-btn.active {
+    color: white;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    font-weight: 700;
+    border: none;
+}
+
+.addtask-prio-btn.active .addtask-prio-image {
+    display: none;
+}
+
+.addtask-prio-btn.active .addtask-prio-image-active {
+    display: flex;
+}
+
+.addtask-prio-btn:hover {
+    box-shadow: rgb(186, 189, 189) 0px 4px 3px 0px;
+    border: none;
+}
+
+.addtask-prio-btn-urgent.active {
+    background-color: #ff3d00;
+}
+
+.addtask-prio-btn-medium.active {
+    background-color: #FFA800;
+}
+
+.addtask-prio-btn-low.active {
+    background-color: #7AE229;
+}
+
+#define-subtask {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#subtask-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#addtask-buttons {
+    display: flex;
+    margin-top: 3vh;
+    align-self: flex-end;
+    gap: 24px;
+    margin-right: auto;
+}
+
+.border-left {
+    border-left: 1px solid #D1D1D1;
+}
+
+.border-red {
+    border: 1px solid red !important;
+}
+
+/* mobile create button */
+#addtask-create-btn-mobile {
+    z-index: 50;
+    cursor: pointer;
+    transform: translateX(100vw);
+    transition: all 220ms ease-in-out;
+    position: fixed !important;
+    top: 13px;
+    right: 25px;
+}

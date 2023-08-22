@@ -1,0 +1,38 @@
+* {
+    font-family: 'Inter';
+}
+
+#body {
+    overflow: hidden;
+}
+
+main.addtask {
+    margin: 89px 0 0 232px;
+    padding: 80px 60px 35px 70px;
+    height: calc(100vh - 89px - 80px - 35px);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    overflow: auto;
+}
+
+/* style for message when sent sucessfully  */
+.task-added {
+    width: 296px;
+    padding: 24px;
+    position: absolute;
+    bottom: 10%;
+    left: calc(50% + 116px - 148px);
+    box-sizing: border-box;
+    color: var(--white);
+    background-color: var(--btnBackgroundColor);
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0px 0px 4px 0px var(--box-shadow);
+    transform: translateY(100vh);
+    transition: all 500ms ease-in-out;
+}
